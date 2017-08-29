@@ -35,17 +35,17 @@ import Foundation
      - returns: An initialized AppStoreDeeplink
      */
     public init(userAgent: String?) {
+        
+        //https://itunes.apple.com/us/app/uber/id368677368?mt=8
+        
+        
         let scheme = "https"
-        let domain = "m.uber.com"
-        let path = "/sign-up"
+        let domain = "itunes.apple.com"
+        let path = "/us/app/uber/id368677368"
         
-        let clientIDQueryItem = URLQueryItem(name: "client_id", value: Configuration.getClientID())
+        let mtQueryItem = URLQueryItem(name: "mt", value: "8")
         
-        let userAgent = userAgent ?? "rides-ios-v\(Configuration.sdkVersion)"
-        
-        let userAgentQueryItem = URLQueryItem(name: "user-agent", value: userAgent)
-        
-        let queryItems = [clientIDQueryItem, userAgentQueryItem]
+        let queryItems = [mtQueryItem]
         
         super.init(scheme: scheme, domain: domain, path: path, queryItems: queryItems)!
     }
