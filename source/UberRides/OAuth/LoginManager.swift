@@ -252,7 +252,7 @@
             return
         }
         
-        if manager.scopes.contains(where: { $0.scopeType == .general }) {
+        if manager.scopes.contains(where: { $0.scopeType == .privileged }) {
             if (Configuration.getFallbackEnabled()) {
                 loginType = .authorizationCode
             } else {
